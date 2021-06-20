@@ -1,0 +1,53 @@
+To see the manual for gpgp you can type
+
+man gpg
+
+The manual is available at: https://gnupg.org/documentation/manuals/gnupg/
+
+To see the version of GPG, you can type
+
+gpg --version
+
+To generate a key:
+
+gpg --gen-key
+
+To list keys (do not copy the parenthesis content)
+
+gpg --list-keys (public keys)
+
+gpg --list-secret-keys (private keys)
+
+To export public keys
+
+gpg --output public.key --export <uid> (uid:email or code). This will export the key in binary
+gpg --output public.asc --armor --export <uid>. This will export the key in ASCII-armored (recommended when sharing with others)
+
+To export private keys
+
+gpg --output private.key --export-secret-key <uid>
+gpg --output private.asc --armor --export-secret-key <uid>
+
+To import keys
+
+gpg --import <key file>
+
+To encrypt
+
+gpg --encrypt --sign -r <uid or email> (binary output)
+ 
+gpg --encrypt --sign --armor -r <uid or email> (ASC armored)
+
+To decrypt
+
+gpg -r <uid or email> --decrypt <file>
+gpg --output <destination file> -r <uid or email> --decrypt <file> (to save the output to a file)
+
+To remove a key
+
+gpg --delete-key key-ID (You might need to delete the secret key first)
+
+gpg --delete-secret-key <key-ID>
+
+
+
